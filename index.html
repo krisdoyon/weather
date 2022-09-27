@@ -24,8 +24,8 @@
     <script defer type="module" src="script.js"></script>
   </head>
   <body>
-    <div class="container container-search">
-      <div class="card card-search"></div>
+    <div class="container container-search flex-column">
+      <div class="card-search"></div>
       <div class="search-bar">
         <span class="material-symbols-outlined icon-search">search</span>
         <input
@@ -48,12 +48,12 @@
         <span class="label-time-utc"></span>
       </div>
       <div class="grid-main">
-        <div class="container container-current">
+        <div class="container container-current flex-column">
           <h2>Today, <span class="today"></span></h2>
 
           <div class="card card-current"></div>
         </div>
-        <div class="container container-forecast">
+        <div class="container container-forecast flex-column">
           <h2>5 day</h2>
           <div class="card card-forecast">
             <!-- <div class="card-forecast__day">
@@ -68,7 +68,7 @@
           </div> -->
           </div>
         </div>
-        <div class="container container-details">
+        <div class="container container-details flex-column">
           <h2>DETAILS</h2>
           <div class="card card-details">
             <!-- <div class="detail">
@@ -96,7 +96,7 @@
           </div>
         </div>
 
-        <div class="container container-ast">
+        <div class="container container-ast flex-column">
           <h2>Astronomical</h2>
           <div class="card card-ast"></div>
         </div>

@@ -30,22 +30,17 @@ body {
   font-family: "Poppins", sans-serif;
   font-size: 1.4rem;
   gap: 8rem;
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 
 main {
   display: flex;
   flex-direction: column;
   gap: 4.4rem;
-  /* transform: translateY(10%); */
-  /* opacity: 0; */
-  /* visibility: hidden; */
+  transform: translateY(10%);
+  opacity: 0;
+  visibility: hidden;
   transition: all 1.5s ease-out;
-}
-
-.container {
-  display: flex;
-  flex-direction: column;
 }
 
 .weather-icon {
@@ -134,17 +129,17 @@ main {
   flex-direction: column;
   overflow-y: auto;
   padding: 0rem !important;
+  height: 0rem;
   width: 80rem;
-  max-height: 0rem;
-  height: auto;
-  align-self: center;
-  min-height: 0rem;
-  transition: all 1s;
+  transition: all 0.75s;
   visibility: hidden;
   opacity: 0;
   position: absolute;
   top: 110%;
   z-index: 999;
+  background-color: #f7f7f7;
+  border-radius: 1.2rem;
+  box-shadow: 0 1.2rem 3.6rem 1rem rgba(0, 0, 0, 0.15);
 }
 
 .card-search::-webkit-scrollbar {
