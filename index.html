@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <link href="styles.css" rel="stylesheet" />
+    <script
+      type="module"
+      defer
+      src="./node_modules/lunarphase-js/dist/browser/lunarphase-js..js"
+    ></script>
+    <script defer type="module" src="script.js"></script>
+  </head>
+  <body>
+    <div class="container container-search">
+      <div class="card card-search"></div>
+      <div class="search-bar">
+        <span class="material-symbols-outlined icon-search">search</span>
+        <input
+          id="input-search"
+          type="text"
+          placeholder="Search city or zip code"
+        />
+      </div>
+      <button class="btn btn--dark btn-search">SEARCH</button>
+      <button class="btn btn--dark btn-location">
+        <span class="material-symbols-outlined icon-location">my_location</span>
+      </button>
+    </div>
+
+    <main>
+      <div class="wrapper-heading-main">
+        <h1 class="heading-main">Showing weather for</h1>
+        <span class="label-location"></span>
+        <span class="label-time"></span>
+        <span class="label-time-utc"></span>
+      </div>
+      <div class="grid-main">
+        <div class="container container-current">
+          <h2>Today, <span class="today"></span></h2>
+
+          <div class="card card-current"></div>
+        </div>
+        <div class="container container-forecast">
+          <h2>5 day</h2>
+          <div class="card card-forecast">
+            <!-- <div class="card-forecast__day">
+            <strong>MON</strong>
+            <span>9/26</span>
+            <img
+            class="weather-icon"
+            src="https://openweathermap.org/img/wn/04d@2x.png"
+            />
+            <span>Sunny</span>
+            <span>72&deg;F / 56&deg;F</span>
+          </div> -->
+          </div>
+        </div>
+        <div class="container container-details">
+          <h2>DETAILS</h2>
+          <div class="card card-details">
+            <!-- <div class="detail">
+            <span class="material-symbols-outlined detail__icon">
+              water_drop
+            </span>
+            <div class="detail__label">HUMIDITY</div>
+            <div class="detail__value">20%</div>
+          </div>
+          <div class="detail">
+            <span class="material-symbols-outlined detail__icon"> air </span>
+            <div class="detail__label">WIND</div>
+            <div class="detail__value">2 mph</div>
+          </div>
+          <div class="detail">
+            <span class="material-symbols-outlined detail__icon"> cloud </span>
+            <div class="detail__label">CLOUD COVER</div>
+            <div class="detail__value">3%</div>
+          </div>
+          <div class="detail">
+            <span class="material-symbols-outlined detail__icon"> rainy </span>
+            <div class="detail__label">PRECIPITATION</div>
+            <div class="detail__value">0.3 in</div>
+          </div> -->
+          </div>
+        </div>
+
+        <div class="container container-ast">
+          <h2>Astronomical</h2>
+          <div class="card card-ast"></div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
