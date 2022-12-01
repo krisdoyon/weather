@@ -1,0 +1,372 @@
+/*////////////////////////////////////////////////////////////////////////////////////
+// GENERAL */
+
+:root {
+  --gradient-primary: linear-gradient(to top left, #8debff, #6cacff);
+  --color-blue-light: #dbf2ff;
+  --color-blue-dark: #005989;
+  --color-light-1: #f7f7f7;
+  --color-light-2: #ddd;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  display: flex;
+  margin: 6rem auto;
+  flex-direction: column;
+  width: 130rem;
+  justify-content: center;
+  background-image: var(--gradient-primary);
+  background-attachment: fixed;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.4rem;
+  gap: 8rem;
+  overflow: hidden;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 4.4rem;
+  transform: translateY(10%);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 1.5s ease-out;
+}
+
+.weather-icon {
+  height: 10rem;
+  width: 10rem;
+  background-image: linear-gradient(to top left, #8debff, #6cacff);
+  border-radius: 1000rem;
+  margin: 2rem 0;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+/* BUTTONS */
+
+.btn {
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.3s;
+}
+
+.btn--dark {
+  border-radius: 0.8rem;
+  color: #fff;
+  background-color: #005989;
+}
+
+.btn--dark:hover {
+  background-color: #002437;
+}
+
+/*////////////////////////////////////////////////////////////////////////////////////
+// SEARCH */
+
+.container-search {
+  display: grid;
+  grid-template-columns: 3fr 1fr 0.25fr;
+  width: 80rem;
+  align-self: center;
+  gap: 1.2rem;
+  position: relative;
+}
+
+.search-bar {
+  position: relative;
+}
+
+.icon-search {
+  position: absolute;
+  right: 1.2rem;
+  top: 50%;
+  transform: translateY(-55%);
+}
+
+#input-search {
+  width: 100%;
+  height: 100%;
+  padding: 1.2rem;
+  border: none;
+  border-radius: 0.8rem;
+  background-color: #f7f7f7;
+  font-family: inherit;
+  font-size: 1.4rem;
+}
+
+#input-search:focus {
+  box-shadow: 0 0 10px 0 #1183d6;
+  outline: none;
+  transition: all 0.2s;
+}
+
+.btn-search {
+  font-size: 2rem;
+}
+
+.icon-location {
+  padding: 1rem;
+  font-size: 3rem;
+}
+
+.card-search {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  padding: 0rem !important;
+  height: 0rem;
+  width: 80rem;
+  transition: all 0.75s;
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  top: 110%;
+  z-index: 999;
+  background-color: #f7f7f7;
+  border-radius: 1.2rem;
+  box-shadow: 0 1.2rem 3.6rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.card-search::-webkit-scrollbar {
+  background-color: var(--color-light-2);
+  border-radius: 1000rem;
+  width: 0.6rem;
+}
+
+.card-search::-webkit-scrollbar-thumb {
+  border-radius: 1000rem;
+  background-color: var(--color-blue-dark);
+}
+
+.btn-search-result {
+  padding: 1.2rem 4.4rem;
+  transition: all 0.2s;
+  cursor: pointer;
+  background-color: #f7f7f7;
+  font-size: inherit;
+  text-align: left;
+}
+
+.btn-search-result:hover {
+  background-color: var(--color-blue-light);
+}
+
+.no-results {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/*////////////////////////////////////////////////////////////////////////////////////
+// MAIN APP */
+
+.wrapper-heading-main {
+  display: flex;
+  flex-direction: column;
+}
+
+.grid-main {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: min-content min-content;
+  gap: 4.4rem;
+}
+
+.label-location {
+  font-size: 1.6rem;
+}
+
+.today {
+  font-weight: 300;
+}
+
+.card {
+  background-color: #f7f7f7;
+  border-radius: 1.2rem;
+  min-height: 30rem;
+  height: fit-content;
+  padding: 3.6rem;
+  box-shadow: 0 1.2rem 3.6rem 1rem rgba(0, 0, 0, 0.15);
+  flex: 1;
+}
+
+/* CURRENT WEATHER */
+
+.container-current {
+  grid-column: 1/3;
+}
+
+.card-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -3rem;
+}
+
+.card-current {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+
+.container-forecast {
+  grid-column: 3/-1;
+}
+
+h2 {
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 2rem;
+  color: #222;
+}
+
+.weather-grid {
+  display: grid;
+  background-color: #fff;
+  border-radius: 1.2rem;
+  flex: 1;
+}
+
+.weather-grid-current {
+  grid-template-columns: repeat(3, 1fr);
+  height: 100%;
+}
+.current-temp {
+  font-size: 6.4rem;
+}
+
+.current-temp-unit {
+  font-size: 2.4rem;
+}
+
+.current-data-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.current-data {
+  align-self: left;
+}
+
+.weather-grid-current .current-card:last-child {
+  align-items: flex-start;
+}
+
+.card-forecast {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  align-items: center;
+}
+
+.card-forecast__day {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.forecast-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem 1.2rem;
+  gap: 0.3rem;
+}
+
+.forecast-card__day {
+  font-weight: 700;
+}
+
+/*///////////////////////////////////////////////////////////////////////////////////
+// DETAILS CARD*/
+
+.container-details {
+  grid-column: 1/4;
+}
+
+.card-details {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 4.4rem;
+}
+
+.detail {
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  grid-template-rows: min-content min-content;
+  column-gap: 1.2rem;
+}
+
+.detail__icon {
+  grid-row: 1/-1;
+  align-self: center;
+  background-image: linear-gradient(to top left, #8debff, #6cacff);
+  color: #333;
+  border-radius: 1000rem;
+  padding: 1rem;
+}
+
+.detail__label {
+  font-size: 1.6rem;
+  color: #333;
+}
+
+.detail__value {
+  color: #555;
+}
+
+/*/ //////////////////////////////////////////////////////////////////////////////////
+// ASTRONOMICAL CARD*/
+
+.container-ast {
+  grid-column: 4/-1;
+}
+
+.card-ast {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  text-align: center;
+  gap: 2.4rem;
+}
+
+.heading-ast {
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
+.icon-moon,
+.icon-sun {
+  font-size: 7.2rem;
+  position: relative;
+  z-index: 9999;
+}
+
+.icon-ast::before {
+  content: "";
+  background-image: var(--gradient-primary);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 12rem;
+  width: 12rem;
+  border-radius: 1000rem;
+  z-index: -1;
+}
