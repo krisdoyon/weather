@@ -69,6 +69,30 @@ export const getWeatherData = createAsyncThunk(
   }
 );
 
+const getCurrentPosition = async function () {
+  return new Promise(function (resolve, reject) {
+    navigator.geolocation.getCurrentPosition(resolve, reject);
+  });
+};
+
+export const getLocalWeather = createAsyncThunk(
+  "weather/getLocalWeather",
+  async (_, thunkAPI) => {
+    try {
+      const position = await getCurrentPosition();
+      const { latitude: lat, longitude: lon } = position.coords;
+      const response = await axios(
+        `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=json`
+      );
+      thunkAPI.dispatch(getWeatherData({ lat, lon }));
+      return response.data.display_name;
+    } catch (error) {
+      console.error(error.message);
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
 const weatherSlice = createSlice({
   name: "weather",
   initialState,
@@ -85,7 +109,6 @@ const weatherSlice = createSlice({
     builder.addCase(
       getWeatherData.fulfilled,
       (state, { payload: { meteoData, openData, astData } }) => {
-        state.isLoading = false;
         const todayISO = new Intl.DateTimeFormat("en-CA", {
           timeZone: `${meteoData.timezone}`,
         }).format(new Date());
@@ -156,9 +179,23 @@ const weatherSlice = createSlice({
           moonrise: convertTo12Hr(astData.moonrise),
           moonset: convertTo12Hr(astData.moonset),
         };
+        state.isLoading = false;
       }
     );
     builder.addCase(getWeatherData.rejected, (state, { payload }) => {
+      state.isLoading = false;
+      state.isError = true;
+      state.error = payload;
+    });
+
+    builder.addCase(getLocalWeather.pending, (state) => {
+      state.isLoading = true;
+      state.isError = false;
+    });
+    builder.addCase(getLocalWeather.fulfilled, (state, { payload }) => {
+      state.location = payload;
+    });
+    builder.addCase(getLocalWeather.rejected, (state, { payload }) => {
       state.isLoading = false;
       state.isError = true;
       state.error = payload;

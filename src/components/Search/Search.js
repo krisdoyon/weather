@@ -6,6 +6,7 @@ import { FaSearch } from "react-icons/fa";
 import { closeDropdown, getSearchResults } from "../../features/searchSlice";
 import { useDispatch } from "react-redux";
 import SearchDropdown from "./SearchDropdown";
+import { getLocalWeather } from "../../features/weatherSlice";
 
 const Search = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -54,7 +55,11 @@ const Search = () => {
       >
         SEARCH
       </Button>
-      <Button fill={+true} className={styles["btn-location"]}>
+      <Button
+        fill={+true}
+        className={styles["btn-location"]}
+        onClick={() => dispatch(getLocalWeather())}
+      >
         <TbCurrentLocation className={styles["icon-location"]} />
       </Button>
     </section>
