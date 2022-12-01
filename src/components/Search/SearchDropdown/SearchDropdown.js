@@ -1,8 +1,8 @@
 import styles from "./SearchDropdown.module.scss";
-import { useRef } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import SearchResult from "../SearchResult";
-import { useEffect } from "react";
+
+import Spinner from "../../Spinner";
 
 const SearchDropdown = () => {
   const { isLoading, isDropdownOpen, results } = useSelector(
@@ -13,11 +13,19 @@ const SearchDropdown = () => {
     <div
       className={`${styles.wrapper} ${isDropdownOpen ? styles.visible : ""}`}
     >
-      {results.length > 0 ? (
-        results.map((result) => (
-          <SearchResult key={result["place_id"]} {...result} />
-        ))
-      ) : (
+      {isLoading && (
+        <div className={styles["spinner-wrapper"]}>
+          <Spinner />
+        </div>
+      )}
+      {!isLoading && results !== null && results?.length !== 0 && (
+        <div className={styles.results}>
+          {results.map((result) => {
+            return <SearchResult key={result["place_id"]} {...result} />;
+          })}
+        </div>
+      )}
+      {!isLoading && results?.length === 0 && (
         <p className={styles["no-results"]}>
           No matching results. <br /> Please try again.
         </p>
