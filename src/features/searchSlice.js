@@ -7,7 +7,7 @@ const initialState = {
   error: null,
   isDropdownOpen: false,
   query: "",
-  results: [],
+  results: null,
 };
 
 export const getSearchResults = createAsyncThunk(
@@ -38,6 +38,7 @@ const searchSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(getSearchResults.pending, (state) => {
       state.isLoading = true;
+      state.results = null;
     });
     builder.addCase(getSearchResults.fulfilled, (state, { payload }) => {
       state.isLoading = false;
