@@ -1,0 +1,12 @@
+.wrapper {
+  padding: 1.2rem 4.4rem;
+  transition: all 0.2s;
+  cursor: pointer;
+  background-color: #f7f7f7;
+  font-size: inherit;
+  text-align: left;
+
+  &:hover {
+    background-color: var(--color-blue-light);
+  }
+}

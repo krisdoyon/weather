@@ -1,0 +1,51 @@
+.wrapper {
+  max-width: 130rem;
+  margin: 6rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8rem;
+
+  main {
+    display: flex;
+    flex-direction: column;
+    gap: 4.4rem;
+    animation: MoveInBottom 1s ease-out;
+  }
+}
+
+.location {
+  font-size: 1.6rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: min-content min-content;
+  gap: 4.4rem;
+}
+
+@keyframes MoveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(10rem);
+  }
+
+  80% {
+    transform: translateY(-2rem);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.error {
+  display: flex;
+  flex-direction: column;
+  font-size: 3rem;
+  margin-top: 3rem;
+
+  p {
+    text-align: center;
+  }
+}

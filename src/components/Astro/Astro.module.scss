@@ -1,0 +1,47 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  grid-column: 4/-1;
+}
+
+.card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  text-align: center;
+  gap: 2.4rem;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+}
+
+.heading {
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
+.icon {
+  font-size: 7.2rem;
+  position: relative;
+  z-index: 9999;
+}
+
+.icon::before {
+  content: "";
+  background-image: var(--gradient-primary);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 12rem;
+  width: 12rem;
+  border-radius: 1000rem;
+  z-index: -1;
+}

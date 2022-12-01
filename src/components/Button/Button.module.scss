@@ -1,0 +1,16 @@
+.btn {
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.3s;
+}
+
+.fill {
+  border-radius: 0.8rem;
+  color: #fff;
+  background-color: #005989;
+}
+
+.fill:hover {
+  background-color: #002437;
+}

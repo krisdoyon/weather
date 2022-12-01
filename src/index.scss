@@ -1,0 +1,88 @@
+// VARIABLES
+
+:root {
+  --gradient-primary: linear-gradient(to top left, #8debff, #6cacff);
+  --color-blue-light: #dbf2ff;
+  --color-blue-dark: #005989;
+  --color-light-1: #f7f7f7;
+  --color-light-2: #ddd;
+  --color-black: #000;
+  --color-white: #fff;
+  --font-size: 1.4rem;
+  --color-text: #000;
+}
+
+// RESET
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body {
+  box-sizing: border-box;
+}
+
+// TYPOGRAPHY
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-size: var(--font-size);
+  color: var(--color-text);
+  font-weight: 400;
+}
+
+// GLOBAL STYLES
+
+body {
+  background-image: var(--gradient-primary);
+  height: 100%;
+  background-attachment: fixed;
+  overflow-y: overlay;
+
+  &::-webkit-scrollbar {
+    background-color: var(--color-light-2);
+    width: 1rem;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 1000rem;
+    background-color: var(--color-blue-dark);
+  }
+}
+
+h2 {
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 2rem;
+  color: #222;
+}
+
+.weather-icon {
+  height: 10rem;
+  width: 10rem;
+  background-image: linear-gradient(to top left, #8debff, #6cacff);
+  border-radius: 1000rem;
+  margin: 2rem 0;
+}
+
+.card {
+  background-color: #f7f7f7;
+  border-radius: 1.2rem;
+  min-height: 30rem;
+  height: fit-content;
+  padding: 3.6rem;
+  box-shadow: 0 1.2rem 3.6rem 1rem rgba(0, 0, 0, 0.15);
+  flex: 1;
+}
