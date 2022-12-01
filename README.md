@@ -9,36 +9,37 @@
 # Table of Contents
 
 1. [Overview](#overview)
-2. [Features](#features)
+2. [Things Learned](#things-learned)
 3. [Technologies used](#technologies-used)
-4. [Project architecture](#project-architecture)
-5. [Challenges](#challenges)
-6. [Data](#data)
-7. [Screenshots](#screenshots)
+4. [Challenges](#challenges)
+5. [Screenshots](#screenshots)
 
 # Overview
 
-Intention to practice using APIs, using redux toolkit for async actions.
+I built this small project with the intention of practicing comsuing and displaying API data, specifically integrating data from multiple sources and using redux toolkit for handling and dispatching async actions. I originally built this app using vanilla JS and recently converted it to a React application which was a valuable experience as I got some practice in reviewing, refactoring and optimizing an existing codebase.
 
-- Use of promise.all
-- Error handling
-- VanillaJS to React
-- Axios library
-- Lunar JS library
-- Create Async Thunk
-- Nominatim search API
-- Open weather API
-- Meteo weather API
-- IPGeolocation astronomy API
+# Things Learned
+
+- Using promise.all for handling multiple API calls.
+- Using async/await and error handling using try/catch.
+- Using the Axios HTTP library to fetch API data.
+- First time using Redux Toolkit's createAsyncThunk in an independent project.
 
 # Technologies used
 
 - React
 - Redux Toolkit
-- Open Trivia DB API
-- Sass
+- SCSS modules
 
-# Project Architecture
+#### APIs / Libraries:
+
+- OpenStreetMap Nominatim API
+- OpenWeather API
+- OpenMeteo weather API
+- Navigator geolocation API
+- IPGeolocation astronomy API
+- Axios HTTP library
+- lunarphase-js library
 
 # Challenges
 
