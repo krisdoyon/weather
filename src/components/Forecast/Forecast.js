@@ -8,9 +8,11 @@ const Forecast = () => {
     <section className={styles.wrapper}>
       <h2>5 day</h2>
       <div className={`card ${styles.card}`}>
-        {forecast.map((day, i) => {
-          return <ForecastDay key={i} {...day} />;
-        })}
+        <div className={styles.forecast}>
+          {forecast.map((day, i) => {
+            return <ForecastDay key={i} {...day} />;
+          })}
+        </div>
       </div>
     </section>
   );

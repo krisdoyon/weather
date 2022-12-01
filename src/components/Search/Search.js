@@ -29,6 +29,10 @@ const Search = () => {
 
   const handleSearch = (e) => {
     e.preventDefault();
+    if (!searchQuery) {
+      alert("Please enter a search term");
+      return;
+    }
     dispatch(getSearchResults(searchQuery));
   };
 
@@ -46,22 +50,24 @@ const Search = () => {
           ref={inputRef}
         />
       </form>
-      <Button
-        fill={+true}
-        className={styles["btn-search"]}
-        onClick={handleSearch}
-        type="submit"
-        ref={searchBtnRef}
-      >
-        SEARCH
-      </Button>
-      <Button
-        fill={+true}
-        className={styles["btn-location"]}
-        onClick={() => dispatch(getLocalWeather())}
-      >
-        <TbCurrentLocation className={styles["icon-location"]} />
-      </Button>
+      <div className={styles["btn-wrapper"]}>
+        <Button
+          fill={+true}
+          className={styles["btn-search"]}
+          onClick={handleSearch}
+          type="submit"
+          ref={searchBtnRef}
+        >
+          SEARCH
+        </Button>
+        <Button
+          fill={+true}
+          className={styles["btn-location"]}
+          onClick={() => dispatch(getLocalWeather())}
+        >
+          <TbCurrentLocation className={styles["icon-location"]} />
+        </Button>
+      </div>
     </section>
   );
 };

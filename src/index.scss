@@ -1,3 +1,5 @@
+@use "./media" as *;
+
 // VARIABLES
 
 :root {
@@ -28,6 +30,10 @@
 html {
   font-size: 62.5%;
   scroll-behavior: smooth;
+
+  @include respond(1200) {
+    font-size: 56.25%;
+  }
 }
 
 body {

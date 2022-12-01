@@ -1,11 +1,18 @@
+@use "../../media" as *;
+
 .wrapper {
   display: grid;
-  grid-template-columns: 3fr 1fr 0.25fr;
-  width: 80rem;
+  grid-template-columns: 1fr max-content;
+  width: 75rem;
   align-self: center;
   height: 5rem;
   gap: 1.2rem;
   position: relative;
+  max-width: 100%;
+
+  @include respond(600) {
+    grid-template-columns: 1fr;
+  }
 
   input {
     width: 100%;
@@ -25,6 +32,12 @@
   }
 }
 
+.btn-wrapper {
+  display: flex;
+  gap: 1.2rem;
+  justify-self: center;
+}
+
 .search-bar {
   position: relative;
 }
@@ -33,6 +46,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 1rem;
 }
 
 .icon-location {
@@ -42,11 +56,15 @@
 
 .icon-search {
   position: absolute;
-  right: 1.2rem;
+  right: 1.6rem;
+  height: 2rem;
+  width: 2rem;
+  color: #777;
   top: 50%;
   transform: translateY(-55%);
 }
 
 .btn-search {
   font-size: 2rem;
+  padding: 0 4rem;
 }
